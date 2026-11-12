@@ -24,6 +24,7 @@ backup_of() {
         .config/*) alts=("$HOME"/.config_backup_*/"${rel#.config/}") ;;
         .bashrc) alts=("$HOME"/.bashrc_backup_*/.bashrc) ;;
         .zshrc) alts=("$HOME"/.zshrc_backup_*/.zshrc) ;;
+        .tmux.conf) alts=("$HOME"/.tmux.conf_backup_*/.tmux.conf) ;;
         wallpapers) alts=("$HOME"/wallpapers_backup_*) ;;
     esac
     for c in "$HOME"/.dotfiles_replaced_*/"$rel" "${alts[@]}"; do
@@ -34,7 +35,7 @@ backup_of() {
 
 choose_mode() {
     section "What do you want back?"
-    local backups=("$HOME"/.dotfiles_replaced_* "$HOME"/.config_backup_* "$HOME"/.bashrc_backup_* "$HOME"/.zshrc_backup_* "$HOME"/wallpapers_backup_*)
+    local backups=("$HOME"/.dotfiles_replaced_* "$HOME"/.config_backup_* "$HOME"/.bashrc_backup_* "$HOME"/.zshrc_backup_* "$HOME"/.tmux.conf_backup_* "$HOME"/wallpapers_backup_*)
     if (( ${#backups[@]} )); then
         info "Found backups:"
         printf '    %s\n' "${backups[@]}"
@@ -117,14 +118,16 @@ undo_configs() {
         fi
     fi
 
-    if ours "$HOME/.zshrc"; then
-        rm "$HOME/.zshrc"
-        if [[ $MODE == restore ]] && b="$(backup_of .zshrc)"; then
-            cp -a "$b" "$HOME/.zshrc" && success "Restored ~/.zshrc"
+    local dotfile
+    for dotfile in .zshrc .tmux.conf; do
+        ours "$HOME/$dotfile" || continue
+        rm "$HOME/$dotfile"
+        if [[ $MODE == restore ]] && b="$(backup_of "$dotfile")"; then
+            cp -a "$b" "$HOME/$dotfile" && success "Restored ~/$dotfile"
         else
-            success "Removed ~/.zshrc"
+            success "Removed ~/$dotfile"
         fi
-    fi
+    done
 
     ours "$HOME/.local/bin/pypr" && rm "$HOME/.local/bin/pypr"
     [[ $MODE == restore ]] && b="$(backup_of .local/bin/pypr)" && cp -a "$b" "$HOME/.local/bin/pypr"

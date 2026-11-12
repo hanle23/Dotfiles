@@ -8,3 +8,8 @@ __pycache__/
 .config/kitty/current-theme.conf
 .config/wal/colorschemes/dark/space.json
 .config/hypr/quickshell/style
+.config/fish/fish_variables
+.config/fish/functions/
+.config/fish/completions/
+.config/fish/conf.d/fzf.fish
+.config/ghostty/themes/

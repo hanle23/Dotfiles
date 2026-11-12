@@ -13,7 +13,7 @@ INSTALLING=false
 backup_config() {
     local stamp="$(date +%Y%m%d_%H%M%S)" name src dest
 
-    for name in .config .icons wallpapers .bashrc .zshrc; do
+    for name in .config .icons wallpapers .bashrc .zshrc .tmux.conf; do
         src="$HOME/$name" dest="$HOME/${name}_backup_$stamp"
         [[ -e "$src" ]] || { warn "$name not found, skipping."; continue; }
         info "Backing up $src → $dest"
@@ -61,6 +61,7 @@ apply_dotfiles() {
     done
     link_entry "$DOTFILES_DIR/.bashrc" "$HOME/.bashrc" "$backup"
     link_entry "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc" "$backup"
+    link_entry "$DOTFILES_DIR/.tmux.conf" "$HOME/.tmux.conf" "$backup"
     shopt -u nullglob dotglob
 
     [[ -L "$HOME/wallpapers" ]] && rm "$HOME/wallpapers"
@@ -117,6 +118,28 @@ setup_space() {
         [[ -f $f ]] && "$qsb" --qt6 -o "$f.qsb" "$f"
     done
     success "Shaders compiled."
+}
+
+setup_shell() {
+    section "Shell & Terminal"
+    local plugins="$HOME/.config/tmux/plugins"
+
+    if command -v fish >/dev/null; then
+        fish -c 'fisher update' >/dev/null 2>&1 && success "Fish plugins installed." || warn "fisher update failed; run it inside fish later."
+    fi
+
+    if command -v tmux >/dev/null; then
+        mkdir -p "$plugins"
+        [[ -d $plugins/tpm ]] || git clone -q https://github.com/tmux-plugins/tpm "$plugins/tpm"
+        [[ -d $plugins/catppuccin/tmux ]] || git clone -q -b v2.1.2 https://github.com/catppuccin/tmux "$plugins/catppuccin/tmux"
+        "$plugins/tpm/bin/install_plugins" >/dev/null 2>&1 && success "Tmux plugins installed." || warn "Tmux plugin install failed; press prefix + I inside tmux."
+    fi
+
+    local fish_bin
+    fish_bin="$(command -v fish || true)"
+    if [[ -n $fish_bin && "$(getent passwd "$USER" | cut -d: -f7)" != "$fish_bin" ]] && ask "Make fish your login shell?"; then
+        chsh -s "$fish_bin" && success "Login shell set to fish." || warn "chsh failed; run: chsh -s $fish_bin"
+    fi
 }
 
 setup_mirrors() {
@@ -198,6 +221,7 @@ run_install() {
     fi
 
     apply_dotfiles
+    setup_shell
     setup_space
     pull_wallpapers
     cast_firewall allow
