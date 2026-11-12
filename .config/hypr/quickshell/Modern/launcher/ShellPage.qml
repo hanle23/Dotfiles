@@ -139,7 +139,7 @@ Item {
         LabelShared {
             width: parent.width
             horizontalAlignment: Text.AlignHCenter
-            text: "↵ run in kitty    ⇧↵ run in background"
+            text: "↵ run in terminal    ⇧↵ run in background"
             font.pixelSize: 10
             font.letterSpacing: 0.8
             color: Theme.dim

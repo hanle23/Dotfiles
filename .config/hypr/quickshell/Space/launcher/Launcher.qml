@@ -2,6 +2,7 @@ import QtQuick
 import Quickshell
 import Quickshell.Io
 import Quickshell.Wayland
+import "../../shared"
 import Quickshell.Hyprland
 import "../../shared"
 import "../common"
@@ -76,7 +77,7 @@ PanelWindow {
     function launch(background) {
         const a = hits[sel]
         if (a?.execute) a.execute()
-        else if (a) Quickshell.execDetached((background ? [] : ["kitty", "--hold", "env", "NOFETCH=1"]).concat(["bash", "-ic", a.name]))
+        else if (a) Quickshell.execDetached((background ? ["bash", "-ic", a.name] : TerminalShared.command(["env", "NOFETCH=1", "bash", "-ic", a.name], { hold: true })))
         close()
     }
 

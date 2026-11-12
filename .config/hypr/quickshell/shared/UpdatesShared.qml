@@ -34,7 +34,7 @@ Singleton {
 
     Process {
         id: updateProc
-        command: ["kitty", "--title", "System update", "sh", "-c", "yay -Syu; echo; read -rp 'Done. Press enter to close.' _"]
+        command: TerminalShared.command(["sh", "-c", "yay -Syu; echo; read -rp 'Done. Press enter to close.' _"], { title: "System update" })
         onExited: root.recount()
     }
     function run() {

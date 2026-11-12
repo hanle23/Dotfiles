@@ -7,7 +7,7 @@ TourShared {
     id: tour
 
     steps: [
-        { title: "Keybinds", keys: ["SUPER", "launcher", "SUPER Q", "terminal", "SUPER B", "close", "SUPER 1-9", "workspaces", "SUPER TAB", "galaxy map"] },
+        { title: "Keybinds", keys: ["SUPER", "launcher", "SUPER Q", "terminal", "SUPER B", "close", "SUPER 1-9", "workspaces", "SUPER `", "galaxy map"] },
         { title: "Settings", hint: "ALT S", where: "settings", beat: 800, pages: [
             ["core", "Style, machine, clock."], ["colors", "Themes and accents."], ["fonts", "Any font you have."],
             ["windows", "Gaps, borders, tiling."], ["effects", "Blur, glow, shadows."], ["animations", "Speed and curves."],
@@ -16,7 +16,7 @@ TourShared {
         { title: "Workspaces", hint: "SUPER 1-9", text: "Each workspace is a spot on the land.", where: "workspaces" },
         { title: "Worlds", hint: "ALT W", text: "This is what changes your colors.", where: "world" },
         { title: "Launcher", hint: "SUPER", text: "Apps and commands. Tab switches.", where: "launcher" },
-        { title: "Overview", hint: "SUPER TAB", text: "Workspaces are stars, windows are planets.\nWASD flies, click a star to land.", where: "overview", ms: 20000 },
+        { title: "Overview", hint: "SUPER `", text: "Workspaces are stars, windows are planets.\nWASD flies, click a star to land.", where: "overview", ms: 20000 },
         { title: "Thanks", text: "Thanks for using my dotfiles.\n— Eli" }
     ]
 

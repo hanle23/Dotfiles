@@ -2,6 +2,9 @@ vim.cmd("set expandtab")
 vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
+vim.opt.title = true
+vim.opt.titlestring = "%t - NVIM"
+vim.opt.titleold = "Ghostty"
 vim.g.mapleader = " "
 vim.keymap.set("n", "gt", "<cmd>bnext<cr>", { desc = "Next buffer" })
 vim.keymap.set("n", "gT", "<cmd>bprevious<cr>", { desc = "Previous buffer" })

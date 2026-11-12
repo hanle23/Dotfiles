@@ -162,7 +162,7 @@ Built by me, with help from my own thoughts and ideas AKA Claude for some of the
   ## Expanding Waybar
   You can hide and reveal widgets you don’t need all the time. You can easily add or remove widgets in the style's `config` under the `group/expand` section.
 
-  - **Network Widget**: Clicking the network widget opens `nmtui` in `kitty`.
+  - **Network Widget**: Clicking the network widget opens `nmtui` in `ghostty`.
   - **Hyprpicker Widget**: This custom widget lets you use `hyprpicker`, display values when hovered, and copy the hex value to your clipboard.
 
   ### *How To Install*

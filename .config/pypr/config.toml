@@ -5,8 +5,8 @@ plugins = [
 
 [scratchpads.term]
 animation = "fromTop"
-command = "kitty --class kitty-dropterm"
-class = "kitty-dropterm"
+command = "ghostty --class=com.hanle.dropterm"
+class = "com.hanle.dropterm"
 skip_windowrules = ["group"]
 position = "17% 6%"
 size = "65% 60%"
@@ -14,16 +14,16 @@ offset = "200%"
 
 [scratchpads.music]
 animation = "fromBottom"
-command = "kitty --class kitty-pulsemixer -e pulsemixer"
-class = "kitty-pulsemixer"
+command = "ghostty --class=com.hanle.pulsemixer -e pulsemixer"
+class = "com.hanle.pulsemixer"
 skip_windowrules = ["group"]
 size = "50% 20%"
 offset = "200%"
 
 [scratchpads.taskbar]
 animation = "fromLeft"
-command = "kitty --class kitty-taskbar -e btm"
-class = "kitty-taskbar"
+command = "ghostty --class=com.hanle.taskbar -e btm"
+class = "com.hanle.taskbar"
 skip_windowrules = ["group"]
 size = "30% 80%"
 offset = "200%"
@@ -41,8 +41,8 @@ offset = "200%"
 
 [scratchpads.packages]
 animation = "fromTop"
-command = "kitty --class kitty-packages -e /home/$USER/Dotfiles/.config/hypr/utilities/packages/package-tui.sh"
-class = "kitty-packages"
+command = "ghostty --class=com.hanle.packages -e /home/$USER/Dotfiles/.config/hypr/utilities/packages/package-tui.sh"
+class = "com.hanle.packages"
 skip_windowrules = ["group"]
 position = "8% 5%"
 size = "84% 88%"

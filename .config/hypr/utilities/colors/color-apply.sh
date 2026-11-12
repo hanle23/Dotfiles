@@ -37,10 +37,20 @@ done
 
 
 "$HYPR/utilities/colors/color-roles.sh"
+walc() { awk -v k="$1" 'match($0, "^" k "=\47(.*)\47", a) { print a[1] }' ~/.cache/wal/colors.sh; }
+
 cat ~/.cache/wal/colors-kitty.conf > ~/.config/kitty/current-theme.conf
+
+# ghostty reads this through `theme = wal` in config.ghostty, SIGUSR2 reloads open windows
+mkdir -p "$HOME/.config/ghostty/themes"
+{
+    printf 'background = %s\nforeground = %s\ncursor-color = %s\n' "$(walc background)" "$(walc foreground)" "$(walc cursor)"
+    for i in $(seq 0 15); do printf 'palette = %d=%s\n' "$i" "$(walc "color$i")"; done
+} >"$HOME/.config/ghostty/themes/wal.tmp" && mv -f "$HOME/.config/ghostty/themes/wal.tmp" "$HOME/.config/ghostty/themes/wal"
+pkill -USR2 -x ghostty 2>/dev/null || true
+
 pywalfox update >/dev/null 2>&1 || true
 
-walc() { awk -v k="$1" 'match($0, "^" k "=\47(.*)\47", a) { print a[1] }' ~/.cache/wal/colors.sh; }
 mkdir -p "$(readlink -m "$HOME/.config/cava")"
 cat >"$HOME/.config/cava/config" <<CAVA
 [general]

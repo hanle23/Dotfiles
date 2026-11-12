@@ -23,6 +23,7 @@ backup_of() {
     case "$rel" in
         .config/*) alts=("$HOME"/.config_backup_*/"${rel#.config/}") ;;
         .bashrc) alts=("$HOME"/.bashrc_backup_*/.bashrc) ;;
+        .zshrc) alts=("$HOME"/.zshrc_backup_*/.zshrc) ;;
         wallpapers) alts=("$HOME"/wallpapers_backup_*) ;;
     esac
     for c in "$HOME"/.dotfiles_replaced_*/"$rel" "${alts[@]}"; do
@@ -33,7 +34,7 @@ backup_of() {
 
 choose_mode() {
     section "What do you want back?"
-    local backups=("$HOME"/.dotfiles_replaced_* "$HOME"/.config_backup_* "$HOME"/.bashrc_backup_* "$HOME"/wallpapers_backup_*)
+    local backups=("$HOME"/.dotfiles_replaced_* "$HOME"/.config_backup_* "$HOME"/.bashrc_backup_* "$HOME"/.zshrc_backup_* "$HOME"/wallpapers_backup_*)
     if (( ${#backups[@]} )); then
         info "Found backups:"
         printf '    %s\n' "${backups[@]}"
@@ -113,6 +114,15 @@ undo_configs() {
             cp -a "$b" "$HOME/.bashrc" && success "Restored ~/.bashrc"
         else
             cp /etc/skel/.bashrc "$HOME/.bashrc" 2>/dev/null && success "~/.bashrc is the stock one now"
+        fi
+    fi
+
+    if ours "$HOME/.zshrc"; then
+        rm "$HOME/.zshrc"
+        if [[ $MODE == restore ]] && b="$(backup_of .zshrc)"; then
+            cp -a "$b" "$HOME/.zshrc" && success "Restored ~/.zshrc"
+        else
+            success "Removed ~/.zshrc"
         fi
     fi
 

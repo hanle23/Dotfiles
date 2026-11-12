@@ -9,7 +9,7 @@ ShellRoot {
     id: root
 
     readonly property string helper: HyprShared.util + "/launcher.py"
-    readonly property string terminal: "kitty"
+    readonly property string terminal: TerminalShared.name
     readonly property string cacheDir: HyprShared.home + "/.cache/launcher"
     readonly property string appCache: cacheDir + "/apps"
     readonly property string homeCache: cacheDir + "/commands"
@@ -244,7 +244,7 @@ ShellRoot {
         bump(shellCache, key)
         close()
         if (background) Quickshell.execDetached(["bash", "-ic", cmd])
-        else Quickshell.execDetached([terminal, "--hold", "env", "NOFETCH=1", "bash", "-ic", cmd])
+        else Quickshell.execDetached(TerminalShared.command(["env", "NOFETCH=1", "bash", "-ic", cmd], { hold: true }))
     }
 
 

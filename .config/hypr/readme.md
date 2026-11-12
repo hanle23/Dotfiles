@@ -121,6 +121,7 @@ wallpaper-apply.sh → awww + color-apply.sh → wal → ~/.cache/wal/*
                                                  ├ quickshell ThemeBaseShared.qml watches it
                                                  ├ waybar     colors-waybar.css
                                                  ├ kitty      current-theme.conf
+                                                 ├ ghostty    themes/wal
                                                  ├ cava       rewrites ~/.config/cava/config
                                                  └ firefox    pywalfox update
 ```
@@ -207,7 +208,7 @@ Same scripts, settings and color themes as Modern, none of the visuals. One proc
 | world | `Alt+W` | new color and land from `World.qml`, not saved to the profile. `before` in `Wallpaper.qml` is a second terrain holding the old seed and colors. `hopProg` in `World.qml` drives every monitor: both pan together while a soft edge wipes the old one away and the moon comes back overhead. a press mid way only runs it to the end fast. the reload waits for it all to stop with `Ui.holdTheme` |
 | overview | `Super+Tab` | workspaces and special workspaces with windows are stars, windows are planets, pypr scratchpads are moons |
 | home | `Alt+Tab` | visor with system info |
-| launcher | tap `Super` | little terminal under the bar, `Tab` switches between apps and commands, `Shift+Enter` runs in the background instead of kitty |
+| launcher | tap `Super` | little terminal under the bar, `Tab` switches between apps and commands, `Shift+Enter` runs in the background instead of in ghostty |
 | widgets | `Alt+D` | layouts in `~/.config/space/layouts/` |
 | settings | `Alt+S` | hud sheet that sizes to each tab, most pages come from `SchemaShared.js`, `LAYOUT` in Space's `Schema.js` sets their columns, right click resets an option |
 | welcome | first run | the tour. the overview opens, closes itself after takeoff and moves on once it has landed. goes to one empty workspace and back so it can't jump monitors |
@@ -378,6 +379,7 @@ There are no `qmldir` files, Quickshell makes them from these. A singleton just 
 | `~/.config/waybar/config`, `style.css` | `waybar-style.sh` | `<Style>/waybar/<name>/` |
 | `state/settings.lua` | `hypr-settings.py` | tweaks json or the panel |
 | `~/.config/kitty/current-theme.conf` | `color-apply.sh` | a color scheme |
+| `~/.config/ghostty/themes/wal` | `color-apply.sh` | a color scheme |
 | `~/.config/cava/config` | `color-apply.sh` | the heredoc in `color-apply.sh` |
 | `wal/colorschemes/dark/space.json` | `World.qml` | the themes in `World.qml` |
 | `quickshell/Modern/overview/workspaces.json` | the overview | save from the overview |
@@ -533,7 +535,7 @@ utilities/
 │  ├─ bar.sh                  picks and toggles waybar or the quickshell bar
 │  └─ waybar-style.sh         copies a waybar style into ~/.config/waybar
 ├─ colors/
-│  ├─ color-apply.sh          runs pywal, updates kitty, firefox, cava and borders
+│  ├─ color-apply.sh          runs pywal, updates ghostty, kitty, firefox, cava and borders
 │  └─ color-roles.sh          remembers role picks, pokes waybar so it reloads css
 ├─ packages/
 │  ├─ package-tui.py          the package manager tui

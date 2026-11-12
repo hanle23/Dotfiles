@@ -52,11 +52,14 @@ Leader key: `<Space>`
 - `<leader>ar`: Resume a session
 - `<leader>ac`: Continue last session
 - `<leader>an`: Start a new session
+- `<leader>ax`: End the session and close the panel
 - `<leader>am`: Pick model
 - `<leader>ab`: Add current file
 - `<leader>aa`: Accept Claude diff
 - `<leader>ad`: Reject Claude diff
 - Visual `<leader>as`: Send selection to Claude
+- Normal + terminal `<C-q>`: Toggle Claude panel (works from inside it)
+- Terminal `<A-h>`: Jump from Claude panel to code
 
 ## LSP (buffer-local, active when an LSP attaches)
 

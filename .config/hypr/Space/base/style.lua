@@ -48,6 +48,7 @@ hl.config({
         kb_layout = "us",
         follow_mouse = 1,
         sensitivity = require("machine").sensitivity,
+        accel_profile = require("machine").accel_profile,
         touchpad = { natural_scroll = true },
     },
 })

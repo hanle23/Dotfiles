@@ -12,6 +12,7 @@ import "home"
 import "settings"
 import "overview"
 import "welcome"
+import "keybinds"
 
 ShellRoot {
     id: shell
@@ -46,6 +47,7 @@ ShellRoot {
     Overlay { id: overview; Overview { onDone: overview.active = false } }
     Overlay { id: home; Home { onDone: home.active = false } }
     Overlay { id: settings; Settings { onDone: settings.active = false } }
+    Keybinds { id: keybinds }
     Welcome {
         id: tour
         landing: overview.active
@@ -72,6 +74,8 @@ ShellRoot {
         case "widgets": return Ui.editing = Ui.editing ? "" : HyprShared.focusedScreen()?.name ?? ""
         case "bar": return Ui.bar = !Ui.bar
         case "world": return World.hop()
+        case "keybinds": return keybinds.toggle()
+        case "keybinds-all": return keybinds.extend()
         case "capture": return Ui.openPanel("media", HyprShared.focusedScreen(), "capture")
         }
     }

@@ -140,12 +140,13 @@ function parse(text) {
             continue
         }
 
-        const m = raw.match(/^\s*hl\.bind\((.+?),\s*hl\.dsp\.([\w.]+)\((.*)\)\s*(,\s*\{[^}]*\})?\s*\)\s*$/)
+        const m = raw.match(/^\s*hl\.bind\((.+?),\s*hl\.dsp\.([\w.]+)\((.*?)\)\s*(,\s*\{[^}]*\})?(?:,\s*(?:d|pass)\("([^"]*)"(,\s*\{[^}]*\})?\))?\s*\)\s*$/)
         if (!m) continue
-        const opts = m[4] ? table(m[4], false) : {}
+        const opts = m[4] || m[6] ? table(m[4] || m[6], false) : {}
         const keys = chips(evalExpr(m[1], locals, loop))
         const d = describe(m[2], m[3], locals, loop)
-        if (opts.desc || opts.description) d.desc = opts.desc || opts.description
+        const label = m[5] || opts.desc || opts.description
+        if (label) d.desc = label.replace(/^.+?\s+·\s+/, "")
 
         if (d.dir && ARROWS[d.dir]) {
             const prefix = keys.slice(0, -1)

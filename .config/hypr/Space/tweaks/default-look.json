@@ -36,6 +36,9 @@
         "random": false,
         "theme": "gruvbox"
       }
+    },
+    "wallpaper": {
+      "path": "$HOME/Dotfiles/wallpapers/pywallpaper.jpg"
     }
   },
   "laptop": {

@@ -5,7 +5,7 @@
     "h": 1080,
     "windows": [
       {
-        "cmd": "'kitty' sh -c 'cd \"$HOME\" && '\\''perl'\\'' '\\''/usr/bin/asciiquarium'\\''; exec \"$SHELL\"'",
+        "cmd": "'ghostty' -e sh -c 'cd \"$HOME\" && '\\''perl'\\'' '\\''/usr/bin/asciiquarium'\\''; exec \"$SHELL\"'",
         "app": "asciiquarium",
         "floating": true,
         "x": 31,
@@ -14,7 +14,7 @@
         "h": 684
       },
       {
-        "cmd": "'kitty' sh -c 'cd \"$HOME\" && '\\''cava'\\''; exec \"$SHELL\"'",
+        "cmd": "'ghostty' -e sh -c 'cd \"$HOME\" && '\\''cava'\\''; exec \"$SHELL\"'",
         "app": "cava",
         "floating": true,
         "x": 40,
@@ -23,7 +23,7 @@
         "h": 148
       },
       {
-        "cmd": "'kitty' sh -c 'cd \"$HOME\" && '\\''yazi'\\''; exec \"$SHELL\"'",
+        "cmd": "'ghostty' -e sh -c 'cd \"$HOME\" && '\\''yazi'\\''; exec \"$SHELL\"'",
         "app": "yazi",
         "floating": true,
         "x": 1263,
@@ -41,7 +41,7 @@
     "h": 900,
     "windows": [
       {
-        "cmd": "'kitty' sh -c 'cd \"$HOME\" && '\\''cmatrix'\\'' '\\''-ab'\\''; exec \"$SHELL\"'",
+        "cmd": "'ghostty' -e sh -c 'cd \"$HOME\" && '\\''cmatrix'\\'' '\\''-ab'\\''; exec \"$SHELL\"'",
         "app": "cmatrix",
         "floating": true,
         "x": 1144,
@@ -50,7 +50,7 @@
         "h": 223
       },
       {
-        "cmd": "'kitty' sh -c 'cd \"$HOME\" && '\\''perl'\\'' '\\''/usr/bin/asciiquarium'\\''; exec \"$SHELL\"'",
+        "cmd": "'ghostty' -e sh -c 'cd \"$HOME\" && '\\''perl'\\'' '\\''/usr/bin/asciiquarium'\\''; exec \"$SHELL\"'",
         "app": "asciiquarium",
         "floating": true,
         "x": 26,
@@ -59,7 +59,7 @@
         "h": 626
       },
       {
-        "cmd": "'kitty' sh -c 'cd \"$HOME\" && '\\''cbonsai'\\'' '\\''-li'\\'' '\\''-t'\\'' '\\''0.01'\\'' '\\''-w'\\'' '\\''0.3'\\'' '\\''-L'\\'' '\\''25'\\'' '\\''-M'\\'' '\\''5'\\''; exec \"$SHELL\"'",
+        "cmd": "'ghostty' -e sh -c 'cd \"$HOME\" && '\\''cbonsai'\\'' '\\''-li'\\'' '\\''-t'\\'' '\\''0.01'\\'' '\\''-w'\\'' '\\''0.3'\\'' '\\''-L'\\'' '\\''25'\\'' '\\''-M'\\'' '\\''5'\\''; exec \"$SHELL\"'",
         "app": "cbonsai",
         "floating": true,
         "x": 1138,
@@ -68,7 +68,7 @@
         "h": 359
       },
       {
-        "cmd": "'kitty' sh -c 'cd \"$HOME\" && '\\''clock-rs'\\''; exec \"$SHELL\"'",
+        "cmd": "'ghostty' -e sh -c 'cd \"$HOME\" && '\\''clock-rs'\\''; exec \"$SHELL\"'",
         "app": "clock-rs",
         "floating": true,
         "x": 1139,
@@ -77,7 +77,7 @@
         "h": 206
       },
       {
-        "cmd": "'kitty' sh -c 'cd \"$HOME\" && '\\''cava'\\''; exec \"$SHELL\"'",
+        "cmd": "'ghostty' -e sh -c 'cd \"$HOME\" && '\\''cava'\\''; exec \"$SHELL\"'",
         "app": "cava",
         "floating": true,
         "x": 27,
@@ -86,7 +86,7 @@
         "h": 160
       },
       {
-        "cmd": "'kitty' sh -c 'cd \"$HOME\" && '\\''genact'\\''; exec \"$SHELL\"'",
+        "cmd": "'ghostty' -e sh -c 'cd \"$HOME\" && '\\''genact'\\''; exec \"$SHELL\"'",
         "app": "genact",
         "floating": true,
         "x": 602,
@@ -95,7 +95,7 @@
         "h": 346
       },
       {
-        "cmd": "'kitty' sh -c 'cd \"$HOME\" && '\\''pipes-rs'\\'' '\\''-p'\\'' '\\''10'\\'' '\\''-d'\\'' '\\''20'\\'' '\\''-t'\\'' '\\''0.18'\\'' '\\''-k'\\'' '\\''heavy,curved'\\'' '\\''--bold'\\'' '\\''true'\\'' '\\''-i'\\'' '\\''true'\\'' '\\''-r'\\'' '\\''1.0'\\''; exec \"$SHELL\"'",
+        "cmd": "'ghostty' -e sh -c 'cd \"$HOME\" && '\\''pipes-rs'\\'' '\\''-p'\\'' '\\''10'\\'' '\\''-d'\\'' '\\''20'\\'' '\\''-t'\\'' '\\''0.18'\\'' '\\''-k'\\'' '\\''heavy,curved'\\'' '\\''--bold'\\'' '\\''true'\\'' '\\''-i'\\'' '\\''true'\\'' '\\''-r'\\'' '\\''1.0'\\''; exec \"$SHELL\"'",
         "app": "pipes-rs",
         "floating": true,
         "x": 598,

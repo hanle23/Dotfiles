@@ -52,6 +52,7 @@ if B and B.gradient then
 end
 
 hl.layer_rule({ name = "style-transition-noanim", match = { namespace = "style-transition" }, no_anim = true })
+hl.layer_rule({ name = "keybinds-noanim", match = { namespace = "keybinds$" }, no_anim = true })
 local held, hold = pcall(dofile, (os.getenv("XDG_RUNTIME_DIR") or "/tmp") .. "/style-transition.lua")
 if held then
     hl.config({ general = hold })

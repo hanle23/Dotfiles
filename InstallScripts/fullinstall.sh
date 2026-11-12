@@ -13,7 +13,7 @@ INSTALLING=false
 backup_config() {
     local stamp="$(date +%Y%m%d_%H%M%S)" name src dest
 
-    for name in .config .icons wallpapers .bashrc; do
+    for name in .config .icons wallpapers .bashrc .zshrc; do
         src="$HOME/$name" dest="$HOME/${name}_backup_$stamp"
         [[ -e "$src" ]] || { warn "$name not found, skipping."; continue; }
         info "Backing up $src → $dest"
@@ -60,6 +60,7 @@ apply_dotfiles() {
         link_entry "$entry" "$HOME/.config/${entry##*/}" "$backup/.config"
     done
     link_entry "$DOTFILES_DIR/.bashrc" "$HOME/.bashrc" "$backup"
+    link_entry "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc" "$backup"
     shopt -u nullglob dotglob
 
     [[ -L "$HOME/wallpapers" ]] && rm "$HOME/wallpapers"

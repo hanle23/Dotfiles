@@ -272,7 +272,7 @@ Item {
                 }
                 text: netRow.net ? netRow.net.name : ""
                 maxText: 100
-                onClicked: b => { if (b === Qt.RightButton) mod.ctx.run("kitty nmtui") }
+                onClicked: b => { if (b === Qt.RightButton) mod.ctx.run("ghostty -e nmtui") }
             }
 
             Fold {

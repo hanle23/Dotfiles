@@ -1,7 +1,7 @@
 return {
     "coder/claudecode.nvim",
     dependencies = { "folke/snacks.nvim" },
-    cmd = { "ClaudeCode", "ClaudeCodeFocus", "ClaudeCodeSend", "ClaudeCodeSendText", "ClaudeCodeOpen", "ClaudeCodeAdd", "ClaudeCodeSelectModel" },
+    cmd = { "ClaudeCode", "ClaudeCodeFocus", "ClaudeCodeSend", "ClaudeCodeSendText", "ClaudeCodeOpen", "ClaudeCodeAdd", "ClaudeCodeSelectModel", "ClaudeCodeClose" },
     opts = {
         terminal = {
             split_side = "right",
@@ -10,6 +10,8 @@ return {
     },
     keys = {
         { "<leader>ap", "<cmd>ClaudeCode<cr>", desc = "Claude: Toggle Right Panel" },
+        { "<C-q>", "<cmd>ClaudeCode<cr>", mode = { "n", "t" }, desc = "Claude: Toggle Panel (works from panel)" },
+        { "<A-h>", "<C-\\><C-n><C-w>h", mode = "t", desc = "Claude: Focus Code (from panel)" },
         { "<leader>ao", "<cmd>ClaudeCodeFocus<cr>", desc = "Claude: Focus Panel" },
         { "<leader>ar", "<cmd>ClaudeCode --resume<cr>", desc = "Claude: Resume Session" },
         { "<leader>ac", "<cmd>ClaudeCode --continue<cr>", desc = "Claude: Continue Last Chat" },
@@ -25,6 +27,7 @@ return {
             end,
             desc = "Claude: New Session",
         },
+        { "<leader>ax", "<cmd>ClaudeCodeClose<cr>", desc = "Claude: End Session" },
         { "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Claude: Pick Model" },
         { "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>", desc = "Claude: Add This File" },
         { "<leader>as", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Claude: Send Selection" },

@@ -9,7 +9,7 @@ TourShared {
     readonly property string sh: HyprShared.util + "/session/shells.sh"
 
     steps: [
-        { title: "Keybinds", keys: ["SUPER", "launcher / Keybinds", "SUPER Q", "terminal", "SUPER B", "close", "SUPER 1-9", "workspaces", "SUPER TAB", "overview"] },
+        { title: "Keybinds", keys: ["SUPER", "launcher / Keybinds", "SUPER Q", "terminal", "SUPER B", "close", "SUPER 1-9", "workspaces", "SUPER `", "overview"] },
         { title: "Settings", hint: "ALT S", where: "settings", pages: [
             ["profile", "Tweaks save as overrides or profiles."], ["colors", "Schemes, or from your wallpaper."],
             ["windows", "Gaps, borders, tiling."], ["effects", "Blur, shadows"], ["animations", "Speed and curves."],

@@ -1,0 +1,65 @@
+{
+  "animation": {
+    "curve": [
+      0.16,
+      1,
+      0.3,
+      1
+    ],
+    "preset": "calm",
+    "speed": 0.6,
+    "window": "popin 90%",
+    "workspace": "slide"
+  },
+  "colors": {
+    "theme": "dark/space"
+  },
+  "config": {
+    "animations": {
+      "enabled": true
+    },
+    "decoration": {
+      "shadow": {
+        "enabled": false
+      }
+    }
+  },
+  "space": {
+    "parallax": 0.2,
+    "world": {
+      "hue": 0.6116389036178589,
+      "palette": {
+        "colors": {
+          "color0": "#24273a",
+          "color1": "#ed8796",
+          "color10": "#a6da95",
+          "color11": "#eed49f",
+          "color12": "#8aadf4",
+          "color13": "#a6da95",
+          "color14": "#8bd5ca",
+          "color15": "#cad3f5",
+          "color2": "#a6da95",
+          "color3": "#eed49f",
+          "color4": "#8aadf4",
+          "color5": "#c6a0f6",
+          "color6": "#8bd5ca",
+          "color7": "#cad3f5",
+          "color8": "#5b6078",
+          "color9": "#8aadf4"
+        },
+        "custom": true,
+        "name": "Space",
+        "special": {
+          "background": "#24273a",
+          "cursor": "#cad3f5",
+          "foreground": "#cad3f5"
+        }
+      },
+      "random": false,
+      "theme": "catppuccin"
+    }
+  },
+  "utilities": {
+    "animations": false
+  }
+}
